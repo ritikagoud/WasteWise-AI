@@ -1,0 +1,353 @@
+/* ===========================================================
+   WasteWise AI - Custom Stylesheet
+   Theme: Green Sustainability (supports UN SDG 12)
+   =========================================================== */
+
+:root {
+    --ww-forest: #1b4332;      /* deep forest green - primary */
+    --ww-leaf: #2d6a4f;        /* leaf green - secondary */
+    --ww-sage: #74c69d;        /* sage green - accent */
+    --ww-mint: #d8f3dc;        /* mint - light background */
+    --ww-cream: #f7f9f4;       /* off-white page background */
+    --ww-soil: #6f4e37;        /* earthy brown - text accent */
+    --ww-dark: #1a1a1a;
+}
+
+/* ---------- Global ---------- */
+body {
+    background-color: var(--ww-cream);
+    color: var(--ww-dark);
+    font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* ---------- Navbar ---------- */
+.navbar-wastewise {
+    background-color: var(--ww-forest);
+}
+
+.navbar-wastewise .navbar-brand,
+.navbar-wastewise .nav-link {
+    color: #ffffff !important;
+    font-weight: 500;
+}
+
+.navbar-wastewise .nav-link:hover {
+    color: var(--ww-sage) !important;
+}
+
+.navbar-brand i {
+    color: var(--ww-sage);
+    margin-right: 6px;
+}
+
+/* ---------- Hero Section ---------- */
+.hero-section {
+    background: linear-gradient(135deg, var(--ww-forest) 0%, var(--ww-leaf) 100%);
+    color: #ffffff;
+    padding: 70px 0;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.hero-section .lead {
+    color: var(--ww-mint);
+}
+
+.hero-icon {
+    font-size: 5rem;
+    color: var(--ww-sage);
+}
+
+/* ---------- SDG Badge ---------- */
+.sdg-badge {
+    display: inline-block;
+    background-color: var(--ww-sage);
+    color: var(--ww-forest);
+    font-weight: 600;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* ---------- Cards ---------- */
+.card {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(27, 67, 50, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(27, 67, 50, 0.15);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: var(--ww-leaf);
+    margin-bottom: 10px;
+}
+
+.card-title {
+    color: var(--ww-forest);
+    font-weight: 600;
+}
+
+/* ---------- SDG Info Card ---------- */
+.sdg-info-card {
+    background-color: var(--ww-mint);
+    border-left: 5px solid var(--ww-leaf);
+}
+
+.sdg-info-icon {
+    font-size: 3rem;
+    color: var(--ww-leaf);
+}
+
+.sdg-info-card .card-title {
+    color: var(--ww-forest);
+}
+
+/* ---------- Upload Section ---------- */
+.upload-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 6px 20px rgba(27, 67, 50, 0.1);
+}
+
+.upload-icon {
+    font-size: 3rem;
+    color: var(--ww-sage);
+}
+
+#imagePreview {
+    max-width: 100%;
+    max-height: 280px;
+    border-radius: 12px;
+    margin-top: 15px;
+    border: 3px solid var(--ww-mint);
+    display: none;
+    object-fit: contain;
+}
+
+.preview-placeholder {
+    border: 2px dashed var(--ww-sage);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    color: #6c757d;
+    margin-top: 15px;
+}
+
+/* ---------- Buttons ---------- */
+.btn-wastewise {
+    background-color: var(--ww-leaf);
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: background-color 0.2s ease;
+}
+
+.btn-wastewise:hover {
+    background-color: var(--ww-forest);
+    color: #ffffff;
+}
+
+.btn-outline-wastewise {
+    border: 2px solid var(--ww-leaf);
+    color: var(--ww-leaf);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 10px 30px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.btn-outline-wastewise:hover {
+    background-color: var(--ww-leaf);
+    color: #ffffff;
+}
+
+/* ---------- Result Page ---------- */
+.result-image {
+    max-width: 100%;
+    max-height: 320px;
+    border-radius: 14px;
+    border: 4px solid var(--ww-mint);
+    object-fit: contain;
+}
+
+.category-badge {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 50px;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.confidence-bar {
+    height: 22px;
+    border-radius: 50px;
+    background-color: #e9ecef;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ww-sage), var(--ww-leaf));
+    border-radius: 50px;
+    text-align: right;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    line-height: 22px;
+    padding-right: 10px;
+    transition: width 1s ease-in-out;
+}
+
+.info-section {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(27, 67, 50, 0.08);
+    border-left: 5px solid var(--ww-leaf);
+}
+
+.info-section h5 {
+    color: var(--ww-forest);
+    font-weight: 700;
+}
+
+.info-section h5 i {
+    margin-right: 8px;
+    color: var(--ww-sage);
+}
+
+/* ---------- Dashboard ---------- */
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(27, 67, 50, 0.08);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--ww-forest);
+}
+
+.stat-label {
+    color: #6c757d;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.category-progress-row {
+    margin-bottom: 14px;
+}
+
+.category-progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    color: var(--ww-forest);
+    margin-bottom: 4px;
+}
+
+.progress {
+    height: 14px;
+    border-radius: 50px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    border-radius: 50px;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color: var(--ww-forest);
+    color: var(--ww-mint);
+    padding: 25px 0;
+    margin-top: 50px;
+}
+
+footer a {
+    color: var(--ww-sage);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Misc ---------- */
+.section-title {
+    color: var(--ww-forest);
+    font-weight: 700;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.table-responsive img.history-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* ---------- Mobile Responsiveness ---------- */
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 45px 0;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .upload-card {
+        padding: 20px;
+    }
+
+    .category-badge {
+        font-size: 1.1rem;
+        padding: 10px 18px;
+    }
+
+    .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .sdg-info-card .row {
+        text-align: center;
+    }
+
+    .sdg-info-icon {
+        font-size: 2.5rem;
+    }
+}

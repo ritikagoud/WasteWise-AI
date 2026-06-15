@@ -77,14 +77,7 @@ WasteWise AI supports this goal by:
     uploaded files are genuine images using Pillow; shows clear, helpful
     messages for invalid uploads, oversized files, and unexpected errors.
 
-> **Note on the "AI":** This project intentionally avoids heavy machine
-> learning frameworks (TensorFlow/PyTorch) and does not perform real image
-> recognition. Instead, it uses a transparent, **rule-based simulation**:
-> keywords from the uploaded file's name and the user's description are
-> matched against a knowledge base of waste categories. This keeps the
-> project simple, explainable, and easy to run without GPUs, paid APIs, or
-> large model downloads — while still demonstrating the full UX of an
-> AI-powered classification app.
+> **AI Approach:** WasteWise AI uses a lightweight rule-based classification engine that analyzes information provided by the user and categorizes waste into appropriate recycling groups. The current prototype focuses on demonstrating the workflow of an AI-assisted waste management system. Future versions can integrate machine learning and computer vision models for automatic image recognition and improved classification accuracy.
 
 ---
 
@@ -209,5 +202,4 @@ guidance.
 
 ## 📜 License
 
-This project was created for educational purposes as part of a college AI
-project in support of UN SDG 12: Responsible Consumption and Production.
+This project was developed as part of the Artificial Intelligence course project. The application demonstrates how AI-inspired waste classification systems can support sustainable waste management and promote the goals of SDG 12: Responsible Consumption and Production.

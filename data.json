@@ -1,0 +1,12 @@
+{
+    "total_uploads": 0,
+    "category_counts": {
+        "Plastic": 0,
+        "Paper": 0,
+        "Glass": 0,
+        "Metal": 0,
+        "E-Waste": 0,
+        "Organic Waste": 0
+    },
+    "history": []
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - WasteWise AI</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- ===================== Navbar ===================== -->
+    <nav class="navbar navbar-expand-lg navbar-wastewise sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="bi bi-recycle"></i>WasteWise AI
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('dashboard') }}">Dashboard</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container my-5">
+        <h2 class="section-title">Usage Dashboard</h2>
+
+        <!-- ===================== Stat Cards ===================== -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-images feature-icon"></i>
+                    <div class="stat-number">{{ total_uploads }}</div>
+                    <div class="stat-label">Total Uploads</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-star feature-icon"></i>
+                    <div class="stat-number" style="font-size: 1.6rem;">{{ most_common }}</div>
+                    <div class="stat-label">Most Common Category</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card">
+                    <i class="bi bi-tags feature-icon"></i>
+                    <div class="stat-number">{{ category_counts | length }}</div>
+                    <div class="stat-label">Categories Tracked</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== Category Breakdown ===================== -->
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="info-section">
+                    <h5><i class="bi bi-bar-chart-line"></i> Category Breakdown</h5>
+
+                    {% if total_uploads > 0 %}
+                        {% for category, count in category_counts.items() %}
+                            <div class="category-progress-row">
+                                <div class="category-progress-label">
+                                    <span>
+                                        {% if category in waste_data %}
+                                            <i class="bi {{ waste_data[category].icon }}"></i>
+                                        {% endif %}
+                                        {{ category }}
+                                    </span>
+                                    <span>{{ count }}</span>
+                                </div>
+                                <div class="progress">
+                                    {% set percent = (count / total_uploads * 100) if total_uploads > 0 else 0 %}
+                                    <div class="progress-bar"
+                                         role="progressbar"
+                                         style="width: {{ percent }}%; background-color: {{ waste_data[category].color if category in waste_data else '#6c757d' }};"
+                                         aria-valuenow="{{ percent }}" aria-valuemin="0" aria-valuemax="100">
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p class="text-muted">
+                            <i class="bi bi-info-circle"></i> No uploads yet. Once you classify
+                            some waste images, statistics will appear here.
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <!-- ===================== Recent History ===================== -->
+            <div class="col-lg-6">
+                <div class="info-section">
+                    <h5><i class="bi bi-clock-history"></i> Recent Uploads</h5>
+
+                    {% if recent_history %}
+                        <div class="table-responsive">
+                            <table class="table table-sm align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Category</th>
+                                        <th>Confidence</th>
+                                        <th>Date/Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for item in recent_history %}
+                                        <tr>
+                                            <td>
+                                                <img src="{{ url_for('uploaded_file', filename=item.filename) }}"
+                                                     class="history-thumb" alt="thumbnail">
+                                            </td>
+                                            <td>{{ item.category }}</td>
+                                            <td>{{ item.confidence }}%</td>
+                                            <td class="small text-muted">{{ item.timestamp }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">
+                            <i class="bi bi-info-circle"></i> No upload history available yet.
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-wastewise">
+                <i class="bi bi-upload"></i> Classify a New Item
+            </a>
+        </div>
+    </main>
+
+    <!-- ===================== Footer ===================== -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-1"><i class="bi bi-recycle"></i> <strong>WasteWise AI</strong></p>
+            <p class="mb-0 small">Supporting UN SDG 12: Responsible Consumption and Production</p>
+            <p class="mb-0 small">College AI Project &mdash; Built with Flask, Pillow &amp; Bootstrap</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

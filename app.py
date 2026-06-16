@@ -1,17 +1,3 @@
-"""
-WasteWise AI - Flask Application
-----------------------------------
-A simple AI-simulated waste classification web app supporting
-UN SDG 12: Responsible Consumption and Production.
-
-This app does NOT use any heavy ML libraries (TensorFlow/PyTorch).
-Classification is simulated using rule-based keyword matching on
-the uploaded image filename AND an optional user-written description
-of the item, combined with a simulated confidence score. This keeps
-the project beginner-friendly while demonstrating a full-stack
-AI-themed application.
-"""
-
 import os
 import json
 import random
@@ -400,7 +386,6 @@ def internal_server_error(e):
     """Handle unexpected server errors gracefully."""
     flash("Something went wrong on our end. Please try again with a different image.")
     return redirect(url_for("index"))
-
 
 # ---------------------------------------------------------------------------
 # App Entry Point

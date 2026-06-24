@@ -1,4 +1,4 @@
-# ♻️ WasteWise AI
+# WasteWise AI
 
 **WasteWise AI** is a simple, beginner-friendly web application that helps users
 identify waste categories from an uploaded image (and an optional written
@@ -8,7 +8,7 @@ Responsible Consumption and Production**.
 
 ---
 
-## 🎯 Project Objective
+## Project Objective
 
 The objective of WasteWise AI is to demonstrate, in a simple and explainable
 way, how a rule-based "AI" system can guide everyday users toward better waste
@@ -22,7 +22,7 @@ project focuses on:
 
 ---
 
-## 🌍 SDG Alignment — SDG 12: Responsible Consumption and Production
+## SDG Alignment — SDG 12: Responsible Consumption and Production
 
 Improper waste disposal contributes directly to pollution, resource depletion,
 and the loss of recyclable materials to landfills. **SDG 12** calls for reducing
@@ -38,7 +38,7 @@ WasteWise AI supports this goal by:
 
 ---
 
-## ✨ Features
+## Features
 
 1. **Professional Landing Page** — Explains the SDG 12 problem, the app's
    solution, and includes a dedicated **SDG 12 information card** describing
@@ -81,7 +81,7 @@ WasteWise AI supports this goal by:
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer            | Technology                          |
 |------------------|--------------------------------------|
@@ -95,7 +95,7 @@ No paid APIs, no TensorFlow/PyTorch, and no external database required.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 WasteWise-AI/
@@ -118,7 +118,7 @@ WasteWise-AI/
 
 ---
 
-## ⚙️ Installation Steps
+## Installation Steps
 
 ### 1. Prerequisites
 - Python 3.8 or higher installed on your system
@@ -157,7 +157,7 @@ http://127.0.0.1:5000/
 
 ---
 
-## 🧪 How to Demo the Classification
+## How to Demo the Classification
 
 Classification uses keyword matching on **both** the image filename and the
 optional description. For the most convincing demo, combine a hinted filename
@@ -178,7 +178,7 @@ guidance.
 
 ---
 
-## 🚨 Error Handling Notes
+## Error Handling Notes
 
 - Rejects empty form submissions (no file selected) with a friendly message.
 - Rejects files with disallowed extensions (only image formats allowed).
@@ -189,7 +189,7 @@ guidance.
 
 ---
 
-## 🚀 Future Scope
+## Future Scope
 
 - Integrate a real lightweight image classification model (e.g., a small CNN
   trained on a public waste dataset) once project scope allows for it.
@@ -200,6 +200,6 @@ guidance.
 
 ---
 
-## 📜 License
+## License
 
 This project was developed as part of the Artificial Intelligence course project. The application demonstrates how AI-inspired waste classification systems can support sustainable waste management and promote the goals of SDG 12: Responsible Consumption and Production.
